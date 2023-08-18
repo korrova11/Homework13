@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Author {
     private   String fullName;
 
@@ -12,11 +14,14 @@ public class Author {
 
     @Override
     public boolean equals(Object other) {
-        if (this.getClass() != other.getClass()) {
+        if (this.getClass() != other.getClass()|| other == null)
             return false;
-            } Author f2 = (Author) other;
+
+        if (this == other ) return true;
+        Author f2 = (Author) other;
      return fullName.equals(f2.fullName);
     }
+
     @Override
     public int hashCode() {
         return java.util.Objects.hash(getFullName());
